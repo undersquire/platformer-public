@@ -1,5 +1,7 @@
 #include "Level.h"
 
+#include <cmath>
+
 #include "LevelStats.h"
 #include "Titlescreen.h"
 
