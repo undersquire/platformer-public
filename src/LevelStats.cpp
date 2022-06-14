@@ -1,5 +1,7 @@
 #include "LevelStats.h"
 
+#include <cmath>
+
 LevelStats::LevelStats(Backend *backend, ScoreKeeper scoreKeeper) noexcept : Scene(backend), scoreKeeper(scoreKeeper)
 {
     this->fontMap = this->backend->GetCachedTexture("font");
