@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.22)
+cmake_minimum_required(VERSION 3.0.0)
 
 project(platformer VERSION 1.0)
 
