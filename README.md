@@ -9,7 +9,7 @@ Libraries used:
 - SDL
 - stb_image
 
-Compiling this project (requires CMake 3.22+):
+Compiling this project (requires CMake 3.0.0+):
 
 - Clone/download the project files
 - Initialize CMake build directory - `cmake -S . -B build`
