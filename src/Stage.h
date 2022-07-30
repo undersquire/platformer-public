@@ -5,17 +5,16 @@
 #include "Backend.h"
 #include "Scene.h"
 
-class Stage
-{
-  public:
-    ~Stage();
+class Stage {
+public:
+  ~Stage();
 
-    Scene *GetScene();
-    void SetScene(Scene *);
+  Scene *GetScene();
+  void SetScene(Scene *);
 
-    bool UpdateScene(float);
-    void RenderScene();
+  bool UpdateScene(float);
+  void RenderScene();
 
-  private:
-    Scene *currentScene = nullptr;
+private:
+  Scene *currentScene = nullptr;
 };

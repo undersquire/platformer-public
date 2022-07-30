@@ -12,49 +12,48 @@
 #include "Skeleton.h"
 #include "Zombie.h"
 
-class Level : public Scene
-{
-  public:
-    Level(Backend *) noexcept;
-    ~Level();
+class Level : public Scene {
+public:
+  Level(Backend *) noexcept;
+  ~Level();
 
-    void Update(float) noexcept override;
-    void Render() noexcept override;
+  void Update(float) noexcept override;
+  void Render() noexcept override;
 
-  private:
-    void RenderText(std::string_view, const Rectangle &) noexcept;
+private:
+  void RenderText(std::string_view, const Rectangle &) noexcept;
 
-  private:
-    // clear color
-    Backend::Color clearColor = {0, 0, 0};
+private:
+  // clear color
+  Backend::Color clearColor = {0, 0, 0};
 
-    // paused state
-    bool paused = false, pauseBlock = true;
+  // paused state
+  bool paused = false, pauseBlock = true;
 
-    // sprite maps
-    Backend::Texture *fontMap;
-    Backend::Texture *spriteMap;
-    Backend::Texture *background;
+  // sprite maps
+  Backend::Texture *fontMap;
+  Backend::Texture *spriteMap;
+  Backend::Texture *background;
 
-    // our world
-    Map map;
+  // our world
+  Map map;
 
-    // our camera
-    Rectangle camera;
+  // our camera
+  Rectangle camera;
 
-    // our entity list
-    std::vector<Entity *> entities;
+  // our entity list
+  std::vector<Entity *> entities;
 
-    // world gravity
-    const float GRAVITY_MAX = 500.f;
-    const float GRAVITY_ACCEL = 25.f;
+  // world gravity
+  const float GRAVITY_MAX = 500.f;
+  const float GRAVITY_ACCEL = 25.f;
 
-    // hitbox color
-    const Backend::Color HITBOX_COLOR = {255, 0, 0};
+  // hitbox color
+  const Backend::Color HITBOX_COLOR = {255, 0, 0};
 
-    // window size
-    Vector2<int> windowSize;
+  // window size
+  Vector2<int> windowSize;
 
-    // score keeper
-    ScoreKeeper scoreKeeper;
+  // score keeper
+  ScoreKeeper scoreKeeper;
 };

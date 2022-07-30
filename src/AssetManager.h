@@ -4,15 +4,14 @@
 
 #include "Asset.h"
 
-class AssetManager
-{
-  public:
-    ~AssetManager();
+class AssetManager {
+public:
+  ~AssetManager();
 
-    Asset *GetAsset(const char *);
+  Asset *GetAsset(const char *);
 
-    bool LoadAsset(const char *, const char *, AssetType);
+  bool LoadAsset(const char *, const char *, AssetType);
 
-  private:
-    std::unordered_map<std::string_view, Asset *> assets;
+private:
+  std::unordered_map<std::string_view, Asset *> assets;
 };

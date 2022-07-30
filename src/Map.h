@@ -6,20 +6,14 @@
 #include "Math.h"
 #include "Sprite.h"
 
-struct Tile
-{
-    enum class Type
-    {
-        Solid,
-        Passable,
-        Platform
-    };
+struct Tile {
+  enum class Type { Solid, Passable, Platform };
 
-    Type type;
-    float friction;
-    Rectangle sprite;
+  Type type;
+  float friction;
+  Rectangle sprite;
 
-    std::vector<uint32_t> residents;
+  std::vector<uint32_t> residents;
 };
 
 static const Tile TILE_TABLE[] = {
@@ -58,8 +52,7 @@ static const Tile TILE_TABLE[] = {
     /* G - right scaffold top    */
     {Tile::Type::Passable, .89f, {{35.f * 16.f, 8.f * 16.f}, {16.f, 16.f}}}};
 
-struct Map
-{
-    float tileSize;
-    std::vector<std::vector<Tile>> tiles;
+struct Map {
+  float tileSize;
+  std::vector<std::vector<Tile>> tiles;
 };

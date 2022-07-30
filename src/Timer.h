@@ -3,14 +3,13 @@
 #include <chrono>
 #include <cstdint>
 
-class Timer
-{
-  public:
-    Timer();
+class Timer {
+public:
+  Timer();
 
-    void Reset();
-    float Elapsed();
+  void Reset();
+  float Elapsed();
 
-  private:
-    std::chrono::time_point<std::chrono::system_clock> start;
+private:
+  std::chrono::time_point<std::chrono::system_clock> start;
 };

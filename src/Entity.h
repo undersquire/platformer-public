@@ -7,54 +7,48 @@
 #include "Math.h"
 #include "Sprite.h"
 
-enum class EntityType
-{
-    Player,
-    Bat,
-    Ghost,
-    Zombie,
-    Skeleton,
-    GoldItem,
-    PickaxeItem,
-    CaveExit
+enum class EntityType {
+  Player,
+  Bat,
+  Ghost,
+  Zombie,
+  Skeleton,
+  GoldItem,
+  PickaxeItem,
+  CaveExit
 };
 
-class Entity
-{
-  public:
-    EntityType type;
+class Entity {
+public:
+  EntityType type;
 
-    Rectangle entityBox;
-    Vector2<float> velocity = {0, 0};
+  Rectangle entityBox;
+  Vector2<float> velocity = {0, 0};
 
-    bool hasGravity, hasCollision, hasEntityCollision, boundsReset, hasTarget, damageable;
+  bool hasGravity, hasCollision, hasEntityCollision, boundsReset, hasTarget,
+      damageable;
 
-    int health = 0;
-    int directionX = 0, directionY = 0;
+  int health = 0;
+  int directionX = 0, directionY = 0;
 
-    Entity *target = nullptr;
+  Entity *target = nullptr;
 
-  public:
-    Entity(Backend *, EntityType) noexcept;
+public:
+  Entity(Backend *, EntityType) noexcept;
 
-    virtual void Update(float) noexcept
-    {
-    }
+  virtual void Update(float) noexcept {}
 
-    virtual void Render(const Rectangle &) noexcept
-    {
-    }
+  virtual void Render(const Rectangle &) noexcept {}
 
-    virtual bool OnCollide(Entity *, const Vector2<float> &) noexcept
-    {
-        return false;
-    }
+  virtual bool OnCollide(Entity *, const Vector2<float> &) noexcept {
+    return false;
+  }
 
-    virtual bool OnCollide(int, Tile &, const Vector2<float> &, const Rectangle &) noexcept
-    {
-        return true;
-    }
+  virtual bool OnCollide(int, Tile &, const Vector2<float> &,
+                         const Rectangle &) noexcept {
+    return true;
+  }
 
-  protected:
-    Backend *backend;
+protected:
+  Backend *backend;
 };
