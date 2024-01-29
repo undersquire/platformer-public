@@ -1,14 +1,22 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 3.25)
 
-project(platformer VERSION 1.0)
+project(platformer)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD 17 CACHE STRING "" FORCE)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE BOOL "" FORCE)
 
-file(GLOB SOURCES CONFIGURE_DEPENDS src/*.cpp)
+add_executable(main)
+set_target_properties(main PROPERTIES OUTPUT_NAME ${CMAKE_PROJECT_NAME})
+add_custom_command(TARGET main POST_BUILD
+  COMMAND ${CMAKE_COMMAND} -E copy_directory
+  ${CMAKE_SOURCE_DIR}/res
+  ${CMAKE_CURRENT_BINARY_DIR}/res)
 
-add_subdirectory(SDL)
-include_directories(SDL/include)
+add_subdirectory("src")
+add_subdirectory("external")
 
-add_executable(${PROJECT_NAME} WIN32 ${SOURCES})
-target_link_libraries(${PROJECT_NAME} SDL2main SDL2-static)
+if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT ${CMAKE_PROJECT_NAME})
+  set_property(TARGET main PROPERTY WIN32_EXECUTABLE true)
+endif()

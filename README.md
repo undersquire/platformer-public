@@ -6,13 +6,11 @@
 
 Libraries used:
 
-- SDL
+- SDL2
 - stb_image
 
-Compiling this project (requires CMake 3.0.0+):
+Compiling this project (requires CMake 3.25+):
 
-- Clone/download the project files
+- Clone/download the project files (`git clone https://www.github.com/undersquire/platformer-public --recursive`)
 - Initialize CMake build directory - `cmake -S . -B build`
 - Build the project via CMake - `cmake --build build`
-
-**IMPORTANT**: The executable (now in the build directory) will **NOT** run unless it finds the `res` folder in the same directory. Either move the executable into the root project directory, or copy the `res` folder into the `build` directory.
