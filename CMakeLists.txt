@@ -10,7 +10,7 @@ set_target_properties(main PROPERTIES OUTPUT_NAME ${CMAKE_PROJECT_NAME})
 add_custom_command(TARGET main POST_BUILD
   COMMAND ${CMAKE_COMMAND} -E copy_directory
   ${CMAKE_SOURCE_DIR}/res
-  ${CMAKE_CURRENT_BINARY_DIR}/res)
+  $<CONFIG>/res)
 
 add_subdirectory("src")
 add_subdirectory("external")
